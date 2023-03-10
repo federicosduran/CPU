@@ -12,7 +12,7 @@ public class AND extends Instruccion {
 
     @Override
     public int ejecutar() {
-
+        return 0;
     }
 
 

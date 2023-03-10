@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Bus {
     private Micro6502 cpu;
-    private ArrayList<Integer> ram = new ArrayList<Integer>(65536);
+    private ArrayList<Integer> ram = new ArrayList<>(65536);
 
     public Bus(Micro6502 cpu) {
         // Conecta CPU al bus

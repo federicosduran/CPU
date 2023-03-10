@@ -1,8 +1,7 @@
 package CPU;
 
-import CPU.Instrucciones.AND;
-import CPU.Instrucciones.Instruccion;
 
+import CPU.Instrucciones.Instruccion;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,7 +33,7 @@ public class Micro6502 {
     byte opcode = 0x00;     // Es el byte de instrucción
     byte cycles = 0;        // Cuenta cuántos ciclos de reloj quedan para la instrucción
     int clock_count = 0;    // Una acumulación global del número de ciclos de reloj
-    Bus bus;
+    private Bus bus;
     // Tabla de búsqueda utilizada para implementar el conjunto de instrucciones del 6502.
     private List<Instruccion> lookup;
 
@@ -47,10 +46,10 @@ public class Micro6502 {
     {
         this.bus=bus;
     }
-    // Construye la tabla de búsqueda.
 
+    // Construye la tabla de búsqueda.
     private void buildLookup() {
-        lookup.add(new AND()) ;        // Añadir instrucciones (sin modo de direccionamiento)
+        //lookup.add(new AND()) ;        // Añadir instrucciones (sin modo de direccionamiento)
 
 
     }
@@ -113,7 +112,7 @@ public class Micro6502 {
     public byte fetch(AddressMode mode)
     {
         if (!(mode== AddressMode.IMPLIED))
-            byte fetched = bus.read(addr_abs);
+            fetched = bus.read(addr_abs);
         return fetched;
     }
 }
